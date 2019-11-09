@@ -1,0 +1,57 @@
+{% assign navigation = include.nav %}
+{% assign mylevel = include.level %}
+{% assign parent_id = include.parent_id %}
+
+{% if mylevel == 1 %}
+
+<ul class="nav flex-column vmenu vmenu-lvl1">
+{% else %}
+<ul class="nav flex-column vmenu-sub vmenu-lvl{{mylevel}}">
+{% endif %}
+  {% for item in navigation %}
+
+    {% assign activeClass = "" %}
+
+    {% if item.url == page.url %}
+      {% assign activeClass = "active" %}
+    {% endif %}
+
+    {% if item.children != null %}
+    <li class="nav-item vmenu-item vmenu-item--has-children {{activeClass}}">
+    {% else %}
+    <li class="nav-item vmenu-item {{activeClass}}">
+    {% endif %}
+    
+      {% assign item_id = mylevel | append: "_" | append: forloop.index %}
+
+      {% if parent_id != null %}
+        {% assign parent_uniq = parent_id | md5 | truncate: 10,"" %}
+        {% assign item_id = mylevel | append: "_" | append: forloop.index | append: parent_uniq %}
+      {% endif %} 
+
+      {% if item.children != null %}<input class="vmenu-input" type="checkbox" {% if item.url and page.url contains item.url %} checked {% endif %} name ="{{item_id}}" id="{{item_id}}" />{% endif %}
+      <label class="vmenu-label" for="{{item_id}}">
+      {% if item.url and item.children == null %}
+        {% comment %} internal/external URL check {% endcomment %}
+        {% if item.url contains "://" %}
+          {% assign nav_url = item.url %}
+        {% else %}
+          {% assign nav_url = item.url | relative_url %}
+        {% endif %}
+
+        <a class="vmenu-link" href="{{ nav_url }}">{{ item.title }}</a>
+      {% else %}
+        <a class="vmenu-link">{{ item.title }}</a>
+      {% endif %}
+      </label>
+
+      {% if item.children != null %}
+          {% assign next_level = mylevel | plus: 1 %}
+          {% include nav_list.html nav=item.children level=next_level parent_id=item_id %}
+      {% endif %}
+
+      {% assign mylevel = include.level %}
+      
+    </li>
+  {% endfor %}
+</ul>

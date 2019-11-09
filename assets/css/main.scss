@@ -1,0 +1,58 @@
+---
+
+---
+
+@import "menu";
+@import "syntaxhighlight";
+
+.sidebar {
+    position: sticky;
+    top: 0rem;
+    height: calc(100vh - 0rem)
+}
+
+.main-content {
+    order: 1;
+}
+
+.page-toc {
+    order: 2;
+    position: sticky;
+    top: 0rem;
+    height: calc(100vh - 0rem);
+    overflow: auto;
+    font-size:85%;
+}
+
+.section-nav {
+    padding-left: 0;
+    border-left: 1px solid #eee;
+
+    ul {
+        padding-left: 1rem;
+    }
+}
+
+.toc-entry {
+    display: block;
+}
+
+.toc-entry a {
+    display: block;
+    padding: .125rem 1.5rem;
+    color: #77757a;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.table {
+    code {
+        word-break: unset !important;
+    }
+}
+
+.page-image {
+    max-width: 100%;
+}

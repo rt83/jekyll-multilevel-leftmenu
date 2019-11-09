@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="{{ site.lang | default: "en-US" }}">
+
+{% include head.html %}
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-2 col-sm-3 sidebar">
+            {% include sidebar.html %}
+        </div>
+        <div class="col-xl-2 d-none d-xl-block page-toc">
+            {% toc %}
+        </div>
+        <div class="col-xl-8 col-sm-9 main-content">
+            <div class="h1 title">{{page.title}}</div>
+            {% include content.html %}
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>

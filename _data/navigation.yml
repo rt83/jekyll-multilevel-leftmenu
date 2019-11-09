@@ -1,0 +1,57 @@
+main:
+  - title: ""
+    url: ""
+
+docs:
+  - title: Welcome
+    url: /index
+  - title: Pet store API
+    url: /pet-store-api
+  - title: Section 01
+    url: /section01
+    children:
+      - title: Sub section 01
+        url: /section01/sub-section01
+        children:
+          - title: Sub sub section 01
+            url: /section01/sub-section01/sub-sub-section01
+            children:
+              - title: Page 01
+                url: /section01/sub-section01/sub-sub-section01/page01
+              - title: Page 02
+                url: /section01/sub-section01/sub-sub-section01/page02
+      - title: Sub section 02
+        url: /section01/sub-section02
+        children:
+          - title: Sub sub section 01
+            url: /section01/sub-section02/sub-sub-section01
+            children:
+              - title: Page 01
+                url: /section01/sub-section02/sub-sub-section01/page01
+              - title: Page 02
+                url: /section01/sub-section02/sub-sub-section01/page02
+          
+  - title: Section 02
+    url: /section02
+    children:
+      - title: Sub section 01
+        url: /section02/sub-section01
+        children:
+          - title: Sub sub section 01
+            url: /section02/sub-section01/sub-sub-section01
+            children:
+              - title: Page 01
+                url: /section02/sub-section01/sub-sub-section01/page01
+              - title: Page 02
+                url: /section02/sub-section01/sub-sub-section01/page02
+      - title: Sub section 02
+        url: /section02/sub-section02
+        children:
+          - title: Sub sub section 01
+            url: /section02/sub-section02/sub-sub-section01
+            children:
+              - title: Page 01
+                url: /section02/sub-section02/sub-sub-section01/page01
+              - title: Page 02
+                url: /section02/sub-section02/sub-sub-section01/page02
+      

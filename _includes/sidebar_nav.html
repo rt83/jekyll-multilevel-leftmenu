@@ -1,0 +1,5 @@
+{% assign navigation = site.data.navigation[include.nav] %}
+
+<nav data-spy="affix" data-offset-top="205">
+  {% include nav_list.html nav=navigation level=1 %}
+</nav>

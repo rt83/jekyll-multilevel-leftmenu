@@ -1,0 +1,43 @@
+
+title: Example Jekyll theme with Swagger UI and Multi-level left menu
+
+# Build settings
+highlighter: rouge
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-toc
+  - jekyll-swagger
+  - liquid-md5
+
+sass:
+  sass_dir: _sass
+
+baseurl: 
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+    values:
+      layout: page
+      toc: true
+      sidebar:
+        nav: "docs"
