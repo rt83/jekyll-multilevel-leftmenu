@@ -5,10 +5,33 @@
 @import "menu";
 @import "syntaxhighlight";
 
+body *::-webkit-scrollbar-track
+{
+	background-color: #fff;
+}
+
+body *::-webkit-scrollbar
+{
+	width: 3px;
+    height:1px;
+	background-color: #fff;
+}
+
+body *::-webkit-scrollbar-thumb
+{
+	background-color: #c2cfd6;
+	border: 0px solid #777;
+}
+
 .sidebar {
     position: sticky;
     top: 0rem;
-    height: calc(100vh - 0rem)
+    height: calc(100vh - 0rem);
+    overflow: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .main-content {
