@@ -12,7 +12,10 @@
 
     {% assign activeClass = "" %}
 
-    {% if item.url == page.url %}
+    {% assign item_url_with_slash = item.url | append:"/" %}
+    {% assign item_url_with_index = item.url | append:"/index" %}
+
+    {% if item.url == page.url or page.url == item_url_with_slash or page.url == item_url_with_index %}
       {% assign activeClass = "active" %}
     {% endif %}
 
@@ -21,7 +24,6 @@
     {% else %}
     <li class="nav-item vmenu-item {{activeClass}}">
     {% endif %}
-    
       {% assign item_id = mylevel | append: "_" | append: forloop.index %}
 
       {% if parent_id != null %}
@@ -31,7 +33,7 @@
 
       {% if item.children != null %}<input class="vmenu-input" type="checkbox" {% if item.url and page.url contains item.url %} checked {% endif %} name ="{{item_id}}" id="{{item_id}}" />{% endif %}
       <label class="vmenu-label" for="{{item_id}}">
-      {% if item.url and item.children == null %}
+      {% if item.url and (item.children == null or (item.content != null and item.content)) %}
         {% comment %} internal/external URL check {% endcomment %}
         {% if item.url contains "://" %}
           {% assign nav_url = item.url %}

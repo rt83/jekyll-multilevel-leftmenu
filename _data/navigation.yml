@@ -9,6 +9,7 @@ docs:
     url: /pet-store-api
   - title: Section 01
     url: /section01
+    content: true
     children:
       - title: Sub section 01
         url: /section01/sub-section01

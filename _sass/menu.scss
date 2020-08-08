@@ -65,8 +65,12 @@ $activeBackground: #CFF;
     background-color: $activeBackground !important;
 }
 
-.vmenu-item.active .vmenu-label {
+.vmenu-item.active > .vmenu-label {
     background-color: $activeBackground !important;
+}
+
+.vmenu-item--has-children > .vmenu-label > .vmenu-link {
+    margin-right: 15px;
 }
 
 .vmenu-item--has-children > .vmenu-input ~ .vmenu-label::after {
